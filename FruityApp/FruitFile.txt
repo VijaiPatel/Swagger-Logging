@@ -1,1 +1,1 @@
-"Apple: 24","Banana: 15","Grapes: 10",Melon: 5
+"Apple: 24","Banana: 15","Grapes: 10",Melon: 5,Cherry: 10,Cherry: 10,Orange: 12
