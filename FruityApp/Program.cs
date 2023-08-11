@@ -1,3 +1,5 @@
+using Serilog;
+
 namespace FruityApp
 {
     public class Program
@@ -5,6 +7,15 @@ namespace FruityApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            //Logging
+            Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
+            builder.Host.UseSerilog((context, services, loggerConfiguration) =>
+            loggerConfiguration
+            .ReadFrom.Configuration(context.Configuration)
+            .ReadFrom.Services(services)
+            );
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddEndpointsApiExplorer();
